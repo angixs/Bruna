@@ -407,19 +407,23 @@
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
     <script>
-        $(document).ready(function() {
-            $('[data-fancybox]').fancybox({
-                // Opzioni FancyBox
-                loop: true,
-                buttons: [
-                    "zoom",
-                    "slideShow",
-                    "thumbs",
-                    "close"
-                ],
-		 		autoFocus: false // <-- impedisce apertura automatica su mobile
-            });
-        });
+      $(document).ready(function () {
+	// Previene bug su mobile: FancyBox NON parte da sola
+	setTimeout(() => {
+		$('[data-fancybox]').fancybox({
+			loop: true,
+			buttons: ["zoom", "slideShow", "thumbs", "close"],
+			autoFocus: false,
+			backFocus: false,
+			trapFocus: false, 
+			mobile: {
+				autoFocus: false,
+				touch: true
+			}
+		});
+	}, 300); // leggero delay per evitare trigger immediato su mobile
+});
+
     </script>
 
 	<script>
