@@ -144,15 +144,18 @@
 						</div>
 						<div class="item">
 							<a href="assets/images/pelletteria/fine_aprile-16.jpg" data-fancybox="pelletteria">
-							<img src="assets/images/pelletteria/fine_aprile-16.jpg" alt="Pelletteria 4" /></a>
+							<img src="assets/images/pelletteria/fine_aprile-16.jpg" alt="Pelletteria 4" />
+							</a>
 						</div>
 							<div class="item">
 								<a href="assets/images/pelletteria/fine_aprile-19.jpg" data-fancybox="pelletteria">
-							<img src="assets/images/pelletteria/fine_aprile-19.jpg" alt="Pelletteria 4" /></a>
+							<img src="assets/images/pelletteria/fine_aprile-19.jpg" alt="Pelletteria 4" />
+							</a>
 						</div>
 							<div class="item">
 								<a href="assets/images/pelletteria/fine_aprile-21.jpg" data-fancybox="pelletteria">
-							<img src="assets/images/pelletteria/fine_aprile-21.jpg" alt="Pelletteria 4" /></a>
+							<img src="assets/images/pelletteria/fine_aprile-21.jpg" alt="Pelletteria 4" />
+						</a>
 						</div>
 						<div class="item">
 							<a href="assets/images/pelletteria/fine_aprile-24.jpg" data-fancybox="pelletteria">
@@ -407,24 +410,23 @@
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
     <script>
-      $(document).ready(function () {
-	// Previene bug su mobile: FancyBox NON parte da sola
-	setTimeout(() => {
-		$('[data-fancybox]').fancybox({
-			loop: true,
-			buttons: ["zoom", "slideShow", "thumbs", "close"],
-			autoFocus: false,
-			backFocus: false,
-			trapFocus: false, 
-			mobile: {
+	$(document).ready(function () {
+		// Inizializza solo dopo un leggero delay per sicurezza su mobile
+		setTimeout(function () {
+			$('[data-fancybox]').fancybox({
+				loop: true,
+				buttons: ["zoom", "slideShow", "thumbs", "close"],
 				autoFocus: false,
-				touch: true
-			}
-		});
-	}, 300); // leggero delay per evitare trigger immediato su mobile
-});
+				backFocus: false,
+				trapFocus: false,
+				touch: true,
+				// opzionale: limita a desktop
+				// mobile: { touch: false }
+			});
+		}, 500);
+	});
+</script>
 
-    </script>
 
 	<script>
 	$(document).ready(function(){
