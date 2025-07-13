@@ -439,22 +439,22 @@
     <!-- FancyBox JS -->
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
-    <script>
-	$(document).ready(function () {
-		// Inizializza solo dopo un leggero delay per sicurezza su mobile
-		setTimeout(function () {
-			$('[data-fancybox]').fancybox({
-				loop: true,
-				buttons: ["zoom", "slideShow", "thumbs", "close"],
-				autoFocus: false,
-				backFocus: false,
-				trapFocus: false,
-				touch: true,
-				// opzionale: limita a desktop
-				// mobile: { touch: false }
-			});
-		}, 500);
-	});
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			setTimeout(function () {
+				if (typeof $.fancybox === 'function') {
+					$('[data-fancybox]').fancybox({
+						loop: true,
+						buttons: ["zoom", "slideShow", "thumbs", "close"],
+						autoFocus: false,
+						backFocus: false,
+						trapFocus: false
+					});
+				}
+			}, 500);
+		});
+	</script>
+
 </script>
 
 
@@ -478,6 +478,7 @@
 		});
 	});
 </script>
+
 
 </body>
 </html>
