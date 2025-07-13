@@ -440,29 +440,31 @@
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
 	<script>
-		document.addEventListener('DOMContentLoaded', function () {
-			setTimeout(function () {
-				if (typeof $.fancybox === 'function') {
-					$('[data-fancybox]').fancybox({
-						loop: true,
-						buttons: ["zoom", "slideShow", "thumbs", "close"],
-						autoFocus: false,
-						backFocus: false,
-						trapFocus: false
-					});
-				}
-			}, 500);
-		});
-	</script>
-
-	<script>
-	document.addEventListener("DOMContentLoaded", function () {
-		// Chiude qualsiasi Fancybox aperta per errore
+	$(document).ready(function() {
+		// Chiude Fancybox se per errore è aperto
 		if ($.fancybox && $.fancybox.getInstance()) {
 			$.fancybox.close();
 		}
+
+		// Inizializza Fancybox correttamente
+		if ($.fancybox) {
+			$('[data-fancybox]').fancybox({
+				loop: true,
+				buttons: ["zoom", "slideShow", "thumbs", "close"],
+				autoFocus: false,
+				backFocus: false,
+				trapFocus: false
+			});
+		}
+
+		// Rimuove il focus iniziale dalle immagini
+		$('[data-fancybox]').each(function () {
+			this.setAttribute('tabindex', '-1');
+			this.blur();
+		});
 	});
 	</script>
+
 
 	<script>
 	$(document).ready(function(){
