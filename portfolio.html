@@ -456,6 +456,15 @@
 	</script>
 
 	<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		// Chiude qualsiasi Fancybox aperta per errore
+		if ($.fancybox && $.fancybox.getInstance()) {
+			$.fancybox.close();
+		}
+	});
+	</script>
+
+	<script>
 	$(document).ready(function(){
 		$(".pelletteria-carousel, .valigeria-carousel, .regalo-carousel, .profumi-carousel").owlCarousel({
 			loop: true,

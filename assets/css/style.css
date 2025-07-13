@@ -206,10 +206,12 @@ nav.navbar.bootsnav .navbar-toggle i{color: #700112;}
 
 a[data-fancybox] {
 	pointer-events: auto;
-	outline: none;
 }
 
-
+a[data-fancybox], a[data-fancybox]:focus, a[data-fancybox]:hover {
+	outline: none !important;
+	box-shadow: none !important;
+}
 
 
 /*.header-text-area*/
